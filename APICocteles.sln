@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CocktelesAPI", "CocktelesAPI\CocktelesAPI.csproj", "{9F6C101D-5A80-4630-9C17-452ABC97EA1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML", "ML\ML.csproj", "{F083FBED-D833-4242-A729-D549C77819E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F6C101D-5A80-4630-9C17-452ABC97EA1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F6C101D-5A80-4630-9C17-452ABC97EA1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F6C101D-5A80-4630-9C17-452ABC97EA1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F6C101D-5A80-4630-9C17-452ABC97EA1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F083FBED-D833-4242-A729-D549C77819E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F083FBED-D833-4242-A729-D549C77819E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F083FBED-D833-4242-A729-D549C77819E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F083FBED-D833-4242-A729-D549C77819E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E044D064-886C-49FA-B61C-A7BA90145BDF}
+	EndGlobalSection
+EndGlobal

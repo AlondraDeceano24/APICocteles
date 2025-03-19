@@ -1,0 +1,81 @@
+﻿@model ML.Cockteles
+@{
+    ViewBag.Title = "Cócteles";
+}
+
+<h2>Cócteles</h2>
+<div class="container">
+    <!-- Barra de búsqueda -->
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" id="searchTerm" placeholder="Buscar cóctel" aria-label="Buscar cóctel">
+        <button class="btn btn-outline-secondary" type="button" onclick="searchCocktail()">Buscar</button>
+    </div>
+
+    <!-- Resultados de cócteles -->
+    <div class="row" id="cocktailResults">
+        @foreach (var datos in Model.drinks)
+        {
+            <div class="col-3 cocktail-card" data-name="@datos.strDrink">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@datos.strDrinkThumb" alt="Cóctel" />
+                    <div class="card-body">
+                        <p class="card-text">@datos.strDrink</p>
+                        <p class="card-text">@datos.strCategory</p>
+
+                        <!-- Botón para ver los ingredientes -->
+                        <button class="btn btn-outline-secondary" type="button" onclick="toggleIngredients(this)">Ver Ingredientes</button>
+
+                        <!-- Lista de ingredientes y medidas -->
+                        <ul class="cocktail-ingredients" style="display: none;">
+                            @for (int i = 1; i <= 15; i++)
+                            {
+                                var ingredientProperty = typeof(ML.Drink).GetProperty($"strIngredient{i}");
+                                var measureProperty = typeof(ML.Drink).GetProperty($"strMeasure{i}");
+
+                                string ingredient = (string)ingredientProperty.GetValue(datos);
+                                string measure = (string)measureProperty.GetValue(datos);
+
+                                if (!string.IsNullOrEmpty(ingredient))
+                                {
+                                    <li>@ingredient @measure</li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    function searchCocktail() {
+        var searchTerm = document.getElementById('searchTerm').value.toLowerCase();
+        var cocktails = document.querySelectorAll('.cocktail-card');
+
+
+        cocktails.forEach(function (cocktail) {
+            cocktail.style.display = 'block';
+        });
+
+  
+        if (searchTerm !== '') {
+            cocktails.forEach(function (cocktail) {
+                var cocktailName = cocktail.getAttribute('data-name').toLowerCase();
+
+                if (!cocktailName.includes(searchTerm)) {
+                    cocktail.style.display = 'none';
+                }
+            });
+        }
+    }
+
+    function toggleIngredients(button) {
+        var ingredientsList = button.nextElementSibling;
+        if (ingredientsList.style.display === "none") {
+            ingredientsList.style.display = "block";
+        } else {
+            ingredientsList.style.display = "none";
+        }
+    }
+</script>
